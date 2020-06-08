@@ -1,24 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState, useEffect, useCallback} from 'react';
+// import ReactDOM from 'react-dom';
+import {BrowserRouter as Router,Route,Link} from 'react-router-dom';
 import './App.css';
-
+import { Layout, Menu, Icon } from 'antd';
+import "antd/dist/antd.css";
+const { Content, Sider } = Layout;
 function App() {
+  const [collapsed, setCollapsed] = useState(false)
+
+  const onCollapse = useCallback(() => {
+    setCollapsed(!collapsed)
+  }, [collapsed])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      <Layout id="con">
+        <Sider
+          collapsible
+          collapsed={collapsed}
+          onCollapse={onCollapse}
         >
-          Learn React
-        </a>
-      </header>
+          <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
+            <Menu.Item key="1" >
+              <Link to="/data">
+                <span className="nav-text">数据</span>
+              </Link>
+            </Menu.Item>
+            <Menu.Item key="2" >
+              <Link to="/chart">
+                <span className="nav-text">图表</span>
+              </Link>
+            </Menu.Item>
+          </Menu>
+        </Sider>
+        <Content style={{ margin: '24px 16px 24px ' }}>
+          <div id="contain" style={{ padding: 24, background: '#fff' }}>
+          </div>
+        </Content>
+      </Layout>
     </div>
   );
 }
