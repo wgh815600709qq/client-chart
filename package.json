@@ -38,13 +38,8 @@
   "main": "index.js",
   "devDependencies": {},
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/wgh815600709qq/express-cli.git"
+    "type": "git"
   },
   "author": "Johnson",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/wgh815600709qq/express-cli/issues"
-  },
-  "homepage": "https://github.com/wgh815600709qq/express-cli#readme"
+  "license": "ISC"
 }

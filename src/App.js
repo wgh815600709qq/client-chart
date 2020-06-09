@@ -4,9 +4,10 @@ import {BrowserRouter as Router,Route,Link} from 'react-router-dom';
 import './App.css';
 import { Layout, Menu, Icon } from 'antd';
 import "antd/dist/antd.css";
-import Line from './charts/line/line'
+import Lines from './charts/line/line'
+import Tables from './table/table'
 const { Content, Sider } = Layout;
-function App() {
+function App(props) {
   const [collapsed, setCollapsed] = useState(false)
 
   const onCollapse = useCallback(() => {
@@ -36,8 +37,9 @@ function App() {
         </Sider>
         <Content style={{ margin: '24px 16px 24px ' }}>
           <div id="contain" style={{ padding: 24, background: '#fff' }}>
-            数据来源
-            <Line></Line>
+            {/* 数据来源 */}
+            <Route path='/data' component={Tables}/>
+            <Route path='/chart' component={Lines}/>
           </div>
         </Content>
       </Layout>

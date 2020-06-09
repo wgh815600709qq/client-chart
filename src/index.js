@@ -2,12 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+// import Tables from './table/table'
+// import line from './charts/line/line'
 import * as serviceWorker from './serviceWorker';
 import {BrowserRouter as Router,Route,Link} from 'react-router-dom';
 ReactDOM.render(
   <React.StrictMode>
       <Router>
-        <App />
+        <Route path='' component={App}/>
     </Router>
   </React.StrictMode>,
   document.getElementById('root')
